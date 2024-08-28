@@ -1,5 +1,5 @@
-import bankingSystem  as bs
- 
+import bankingSystem as bs
+
 # Instantiate 3 SavingsAccount Objects
 checking1 = bs.CheckingAccount("Mary Smith",    1000.00)
 checking2 = bs.CheckingAccount("John Johnson",  3500.00)
@@ -19,7 +19,7 @@ christmasClub3 = bs.ChristmasClubAccount("Millie Capps", 12345.00)
 # ChristmasClubAccount checkBalance, deposit, and
 # withdraw for each type of account.
 
-outfile.write(f"CheckingAccount checking1 Example")
+outfile.write(f"\nCheckingAccount checking1 Example")
 outfile.write(f"\n{checking1.checkBalance()}")
 checking1.deposit(1400.00)
 outfile.write(f"\n{checking1.checkBalance()}")

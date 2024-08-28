@@ -67,18 +67,21 @@ Examples will be provided to check balances, deposit,
 withdraw, and transfer money between accounts.	
 '''
 
-###################################
+#########################################
+
 # https://docs.python.org/3/library/abc.html
 
 from abc import ABC, abstractmethod
 
-####  BankAccount Class  ####
+#########################################
+
+####  BankAccount Class   ####
 class BankAccount(ABC):
   # Constructor
-  def __init__(self, accountHolder, balance):
-    self.accountHolder  = accountHolder
-    self.balance        = balance
-
+  def __init__(self, owner, balance):
+    self.owner    = owner
+    self.balance  = balance
+  
   @abstractmethod
   def checkBalance(self):
     pass
@@ -94,26 +97,29 @@ class BankAccount(ABC):
   def transfer(self, amount, targetAccount):
     # Does this much money exist in the account
     if (self.balance >= amount):
+      # Will withdrawing from this account
+      # result in < MINIMIMUMBALANCE
+      # This check was not made in this method
       self.withdraw(amount)
       targetAccount.deposit(amount)
       print(f"\nTransferred ${amount:.2f}")# To {targetAccount}")
     else:
       print(f"\nThe Transfer Failed Due To Insufficient Funds.")
 
-###################################
+#########################################
 
-####  CheckingAccount Class  ####
+####  CheckingAccount Class   ####
 class CheckingAccount(BankAccount):
   MINIMUMBALANCE = 100.00
 
   def checkBalance(self):
-    return (f"The Checking Account Balance For {self.accountHolder} is: ${self.balance:.2f}")
-
+    return (f"The Checking Account Balance For {self.owner} is ${self.balance:.2f}")
+  
   def deposit(self, amount):
     # Verify that amount to be deposited is positive
     if (amount > 0):
       self.balance += amount
-      print(f"Deposited ${amount:.2f} into {self.accountHolder} Checking Account.")
+      print(f"Deposited ${amount:.2f} into {self.owner} Checking Account.")
     else:
       print("\nYou Cannot Deposit <= 0")
   
@@ -125,25 +131,24 @@ class CheckingAccount(BankAccount):
         print(f"\nWithdraw Amount Failed. Would Leave < MINIMUM BALANCE.")
       else:
         self.balance -= amount
-        print(f"Withdraw ${amount:.2f} from {self.accountHolder} Checking Account.")
+        print(f"Withdraw ${amount:.2f} from {self.owner} Checking Account.")
     else:
       print("\nYou Cannot Withdraw <= 0")
 
-###################################
+#########################################
 
-####  SavingsAccount Class  ####
-
+####  SavingsAccount Class   ####
 class SavingsAccount(BankAccount):
   MINIMUMBALANCE = 25.00
 
   def checkBalance(self):
-    return (f"The Savings Account Balance For {self.accountHolder} is ${self.balance:.2f}")
+    return (f"The Savings Account Balance For {self.owner} is ${self.balance:.2f}")
   
   def deposit(self, amount):
     # Verify that amount to be deposited is positive
     if (amount > 0):
       self.balance += amount
-      print(f"Deposited ${amount:.2f} into {self.accountHolder} Savings Account.")
+      print(f"Deposited ${amount:.2f} into {self.owner} Savings Account.")
     else:
       print("\nYou Cannot Deposit <= 0")
   
@@ -155,25 +160,24 @@ class SavingsAccount(BankAccount):
         print(f"\nWithdraw Amount Failed. Would Leave < MINIMUM BALANCE.")
       else:
         self.balance -= amount
-        print(f"Withdraw ${amount:.2f} from {self.accountHolder} Savings Account.")
+        print(f"Withdraw ${amount:.2f} from {self.owner} Savings Account.")
     else:
       print("\nYou Cannot Withdraw <= 0")
 
-###################################
+#########################################
 
-####  ChristmasClubAccount Class  ####
-
+####  ChristmasClubAccount Class   ####
 class ChristmasClubAccount(BankAccount):
   MINIMUMBALANCE = 10.00
 
   def checkBalance(self):
-    return (f"The Christmas Club Account Balance For {self.accountHolder} is ${self.balance:.2f}")
+    return (f"The Christmas Club Account Balance For {self.owner} is ${self.balance:.2f}")
   
   def deposit(self, amount):
     # Verify that amount to be deposited is positive
     if (amount > 0):
       self.balance += amount
-      print(f"Deposited ${amount:.2f} into {self.accountHolder} Christmas Club Account.")
+      print(f"Deposited ${amount:.2f} into {self.owner} Christmas Club Account.")
     else:
       print("\nYou Cannot Deposit <= 0")
   
@@ -185,16 +189,21 @@ class ChristmasClubAccount(BankAccount):
         print(f"\nWithdraw Amount Failed. Would Leave < MINIMUM BALANCE.")
       else:
         self.balance -= amount
-        print(f"Withdraw ${amount:.2f} from {self.accountHolder} Christmas Club Account.")
+        print(f"Withdraw ${amount:.2f} from {self.owner} Christmas Club Account.")
     else:
       print("\nYou Cannot Withdraw <= 0")
 
-###################################
+#########################################
 
+# Establish line of communication between the
+# Python bankingSystem.py file and the
+# input.txt file.
 def performOperations(inputFile, outputFile):
-  with open(inputFile, "r") as infile, \
+  with open(inputFile,  "r") as infile, \
        open(outputFile, "w") as outfile:
     exec(infile.read(), globals(), locals())
 
 if (__name__ == "__main__"):
   performOperations("input.txt", "output.txt")
+
+#########################################

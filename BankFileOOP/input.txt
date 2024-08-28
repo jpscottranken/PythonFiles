@@ -1,0 +1,67 @@
+import bankingSystem  as bs
+ 
+# Instantiate 3 SavingsAccount Objects
+checking1 = bs.CheckingAccount("Mary Smith",    1000.00)
+checking2 = bs.CheckingAccount("John Johnson",  3500.00)
+checking3 = bs.CheckingAccount("Kate Kramer",  10000.00)
+
+# Instantiate 3 CheckingAccount Objects
+savings1 = bs.SavingsAccount("Burt Fleming",   2000.00)
+savings2 = bs.SavingsAccount("Kathy Blank",    5555.00)
+savings3 = bs.SavingsAccount("Kelly Jones",    8765.00)
+
+# Instantiate 3 ChristmasClubAccount Objects
+christmasClub1 = bs.ChristmasClubAccount("Marty Kent",    5600.00)
+christmasClub2 = bs.ChristmasClubAccount("Russ Jones",    9800.00)
+christmasClub3 = bs.ChristmasClubAccount("Millie Capps", 12345.00)
+
+# Examples of SavingsAccount, CheckingAccount, and
+# ChristmasClubAccount checkBalance, deposit, and
+# withdraw for each type of account.
+
+outfile.write(f"CheckingAccount checking1 Example")
+outfile.write(f"\n{checking1.checkBalance()}")
+checking1.deposit(1400.00)
+outfile.write(f"\n{checking1.checkBalance()}")
+checking1.withdraw(800.00)
+outfile.write(f"\n{checking1.checkBalance()}")
+
+outfile.write(f"\n\nCheckingAccount checking3 Example")
+outfile.write(f"\n{checking3.checkBalance()}")
+checking3.deposit(789.00)
+outfile.write(f"\n{checking3.checkBalance()}")
+checking3.withdraw(1000.00)
+outfile.write(f"\n{checking3.checkBalance()}")
+
+outfile.write(f"\n\nSavingsAccount savings2 Example")
+outfile.write(f"\n{savings2.checkBalance()}")
+savings2.deposit(100.00)
+outfile.write(f"\n{savings2.checkBalance()}")
+savings2.withdraw(300.00)
+outfile.write(f"\n{savings2.checkBalance()}")
+
+outfile.write(f"\n\nSavingsAccount savings3 Example")
+outfile.write(f"\n{savings3.checkBalance()}")
+savings3.deposit(1987.00)
+outfile.write(f"\n{savings3.checkBalance()}")
+savings3.withdraw(3300.00)
+outfile.write(f"\n{savings3.checkBalance()}")
+
+outfile.write(f"\n\nChristmasClubAccount christmasClub1 Example")
+outfile.write(f"\n{christmasClub1.checkBalance()}")
+christmasClub1.deposit(1000.00)
+outfile.write(f"\n{christmasClub1.checkBalance()}")
+christmasClub1.withdraw(2000.00)
+outfile.write(f"\n{christmasClub1.checkBalance()}")
+
+outfile.write(f"\n\nChristmasClubAccount christmasClub2 Example")
+outfile.write(f"\n{christmasClub2.checkBalance()}")
+christmasClub2.deposit(100.00)
+outfile.write(f"\n{christmasClub2.checkBalance()}")
+christmasClub2.withdraw(5000.00)
+outfile.write(f"\n{christmasClub2.checkBalance()}")
+outfile.write(f"\n{checking1.checkBalance()}")
+outfile.write(f"\n{christmasClub2.checkBalance()}")
+christmasClub2.transfer(1000, checking1)
+outfile.write(f"\n{checking1.checkBalance()}")
+outfile.write(f"\n{christmasClub2.checkBalance()}")

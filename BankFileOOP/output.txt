@@ -1,0 +1,33 @@
+CheckingAccount checking1 Example
+The Checking Account Balance For Mary Smith is: $1000.00
+The Checking Account Balance For Mary Smith is: $2400.00
+The Checking Account Balance For Mary Smith is: $1600.00
+
+CheckingAccount checking3 Example
+The Checking Account Balance For Kate Kramer is: $10000.00
+The Checking Account Balance For Kate Kramer is: $10789.00
+The Checking Account Balance For Kate Kramer is: $9789.00
+
+SavingsAccount savings2 Example
+The Savings Account Balance For Kathy Blank is $5555.00
+The Savings Account Balance For Kathy Blank is $5655.00
+The Savings Account Balance For Kathy Blank is $5355.00
+
+SavingsAccount savings3 Example
+The Savings Account Balance For Kelly Jones is $8765.00
+The Savings Account Balance For Kelly Jones is $10752.00
+The Savings Account Balance For Kelly Jones is $7452.00
+
+ChristmasClubAccount christmasClub1 Example
+The Christmas Club Account Balance For Marty Kent is $5600.00
+The Christmas Club Account Balance For Marty Kent is $6600.00
+The Christmas Club Account Balance For Marty Kent is $4600.00
+
+ChristmasClubAccount christmasClub2 Example
+The Christmas Club Account Balance For Russ Jones is $9800.00
+The Christmas Club Account Balance For Russ Jones is $9900.00
+The Christmas Club Account Balance For Russ Jones is $4900.00
+The Checking Account Balance For Mary Smith is: $1600.00
+The Christmas Club Account Balance For Russ Jones is $4900.00
+The Checking Account Balance For Mary Smith is: $2600.00
+The Christmas Club Account Balance For Russ Jones is $3900.00
